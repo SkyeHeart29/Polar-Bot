@@ -44,7 +44,7 @@ if __name__ == "__main__":
         for file in os.listdir(folder):
             cog_name = "{}.{}".format(folder, file[:-4])
             bot.load_extension(cog_name)
-            print("Loaded {}'"format(cog_name))
+            print("Loaded {}".format(cog_name))
     except:
         pass
         
