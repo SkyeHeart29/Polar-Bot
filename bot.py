@@ -6,11 +6,7 @@ from discord.ext import commands
 
 logging.basicConfig(level=logging.INFO)
 
-prefix = "."
-description = "A polar bear robot that does things!"
-cogs = ['cogs.events', 'cogs.general', 'cogs.mod', 'cogs.owner', 'cogs.recreational', 'cogs.search']
-
-bot = commands.Bot(command_prefix=commands.when_mentioned_or(prefix), description=description)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'), description='A polar bear robot')
 bot.remove_command("help")
 
 @bot.command()
@@ -43,7 +39,13 @@ async def extensions(ctx):
     await ctx.send(text)
     
 if __name__ == "__main__":
-    for cog in cogs:
-        bot.load_extension(cog)
+    folder = input("Load cogs from: ")
+    try:
+        for file in os.listdir(folder):
+            cog_name = "{}.{}".format(folder, file[:-4])
+            bot.load_extension(cog_name)
+            print("Loaded {}'"format(cog_name))
+    except:
+        pass
         
     bot.run(sys.argv[1])
