@@ -271,7 +271,7 @@ class Music:
 prefix = "."
 description = "A polar bear robot that does things!"
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or(prefix), description=description)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'), description='A polar bear robot.')
 bot.remove_command("help")
 bot.add_cog(Music(bot))
         
