@@ -1,12 +1,13 @@
 import asyncio
 import discord
 import logging
+import os
 import sys
 from discord.ext import commands
 
 logging.basicConfig(level=logging.INFO)
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'), description='A polar bear robot')
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'), description='A polar bear robot.')
 bot.remove_command("help")
 
 @bot.command()
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     folder = input("Load cogs from: ")
     try:
         for file in os.listdir(folder):
-            cog_name = "{}.{}".format(folder, file[:-4])
+            cog_name = "{}.{}".format(folder, file[:-3s])
             bot.load_extension(cog_name)
             print("Loaded {}".format(cog_name))
     except:
