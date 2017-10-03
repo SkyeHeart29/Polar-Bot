@@ -43,7 +43,7 @@ if __name__ == "__main__":
     folder = input("Load cogs from: ")
     try:
         for file in os.listdir(folder):
-            cog_name = "{}.{}".format(folder, file[:-3s])
+            cog_name = "{}.{}".format(folder, file[:-3])
             bot.load_extension(cog_name)
             print("Loaded {}".format(cog_name))
     except:
