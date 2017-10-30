@@ -26,7 +26,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 * `me [message]` - An adoption of Skype's /me command.
 
 ### Memory
-* **Tag** (See *Tag Formatting* for more info. Aliases: `tag`, `t`)
+* **Tag** (See [Tag Formatting](https://github.com/polar-rex/Polar-Bot#tag-formatting). Aliases: `tag`, `t`)
   * `t [tag] (arg1) (arg2)` - Returns the content of the tag.
   * `t create [tag] [message] (arg1) (arg2)` - Creates a tag. `@here` or `@everyone` cannot be used in a tag.
   * `t delete [tag]` - Deletes a tag if you're the owner.
