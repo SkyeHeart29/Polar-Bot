@@ -20,7 +20,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 ### Moderation
 * `ban [member]` - Bans a member. Caller requires *ban members* permission.
 * `clear [number]` - Clears a number of recent messages from a channel. Caller requires *manage messages* permission.
-* `kick` - Kicks a member. Caller requires *kick members* permission.
+* `kick [member]` - Kicks a member. Caller requires *kick members* permission.
 
 ### Recreational
 * `me [message]` - An adoption of Skype's /me command.
@@ -28,8 +28,8 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 ### Memory
 * **Tag** (See *Tag Formatting* for more info. Aliases: `tag`, `t`)
   * `t [tag] (arg1) (arg2)` - Returns the content of the tag.
-  * `t create ` - Creates a tag. `@here` or `@everyone` cannot be used in a tag.
-  * `t delete` - Deletes a tag if you're the owner.
+  * `t create [tag] [message] (arg1) (arg2)` - Creates a tag. `@here` or `@everyone` cannot be used in a tag.
+  * `t delete [tag]` - Deletes a tag if you're the owner.
   * `t list (member)` - Returns a list of the member's tags. If no member is given, then the caller's tags are returned.
 
 ### Search
