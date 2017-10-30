@@ -1,50 +1,41 @@
-#Polar Bot
-
-######A polar bear Discord bot that stores tags, plays music, perform moderation functions and many other things. [Invite Polar Bot to your server*!](https://discordapp.com/oauth2/authorize?client_id=294708056112234497&scope=bot&permissions=406121544&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2Fpolar-rex%2FPolar-Bot)
+# Polar Bot
+###### A polar bear Discord bot that stores tags, plays music, perform moderation functions and many other things. [Invite Polar Bot to your server*!](https://discordapp.com/oauth2/authorize?client_id=294708056112234497&scope=bot&permissions=406121544&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2Fpolar-rex%2FPolar-Bot)
 
 **Untick Administrator if you don't plan on using the moderation commands.*
 
 ## Notes
-
 * To use a command, ping the bot or prefix with a full stop/period.
 * Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discord.gg/invite/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
 
-##Commands
-
+## Commands
 * `[]` is a mandatory argument while `()` is an optional argument.
 
-###General
-
+### General
 * `connections` - Shows the number of servers the bot is in.
 * `help` - Shows the Github link.
 * `invite` - Shows the invite link for Polar Bot.
 * `ping` - Pong!
 * `server` - Shows the invite link for The Arctic Den server.
 
-###Moderation
-
+### Moderation
 * `ban [member]` - Bans a member. Caller requires *ban members* permission.
 * `clear [number]` - Clears a number of recent messages from a channel. Caller requires *manage messages* permission.
 * `kick` - Kicks a member. Caller requires *kick members* permission.
 
-###Recreational
-
+### Recreational
 * `me [message]` - An adoption of Skype's /me command.
 
-###Memory
-
+### Memory
 * **Tag** (See *Tag Formatting* for more info. Aliases: `tag`, `t`)
   * `t [tag] (arg1) (arg2)` - Returns the content of the tag.
   * `t create ` - Creates a tag. `@here` or `@everyone` cannot be used in a tag.
   * `t delete` - Deletes a tag if you're the owner.
   * `t list (member)` - Returns a list of the member's tags. If no member is given, then the caller's tags are returned.
 
-###Search
-
+### Search
 * `yt [search]` - Returns a YouTube link. (Alias: `youtube`)
 
-###Voice
-
+### Voice
 * `forceskip` - Force-skips current song. Caller requires  *deafen members* permission.
 * `pause` - Pauses current song. Caller requires *deafen members* permission.
 * `play [url/title]` - Plays a song. [Supported URLs](https://rg3.github.io/youtube-dl/supportedsites.html).
@@ -55,8 +46,7 @@
 * `summon` - Makes the bot join the voice channel the caller is in.
 * `volume [1-100]` - Set the volume of current song. Caller requires *deafen members* permission.
 
-###Bot Owner Only
-
+### Bot Owner Only
 * `extensions` - Lists loaded extensions.
 * `inform [message]` - Send a message to all the servers the bot is in.
 * `load [extension]` - Loads an extension.
@@ -68,16 +58,14 @@
   * `db delete [database]` - Deletes a database.
   * `db list [database]` - Lists all databases in the RethinkDB server.
 
-##Tag Formatting
-
+## Tag Formatting
 Polar Bot features a formatting system that provides functionality and interactivity to tags. For example:
 
 ![Tag Formatting](https://i.imgur.com/ZPNNBJu.png)
 
 **This feature is inspired by [Bot 42](https://fennekid.github.io/beta/yna.html)*
 
-###Format Objects
-
+### Format Objects
 * `{tag}` - Name of tag.
 * `{me}` - Display name of caller.
 * `{me-user}` - Username with discrimination number of caller.
