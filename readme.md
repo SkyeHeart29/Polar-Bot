@@ -1,5 +1,5 @@
 # Polar Bot
-A polar bear Discord bot that stores tags, plays music, perform moderation functions and many other things. [**Invite Polar Bot to your server***!](https://discordapp.com/oauth2/authorize?client_id=294708056112234497&scope=bot&permissions=406121544&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2Fpolar-rex%2FPolar-Bot)
+A polar bear Discord bot that stores tags, plays music, perform moderation functions and many other things. [**Invite Polar Bot to your server now***!](https://discordapp.com/oauth2/authorize?client_id=294708056112234497&scope=bot&permissions=406121544&response_type=code&redirect_uri=https%3A%2F%2Fgithub.com%2Fpolar-rex%2FPolar-Bot)
 
 **Untick Administrator if you don't plan on using the moderation commands.*
 
@@ -61,7 +61,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 ## Tag Formatting
 Polar Bot features a formatting system that provides functionality and interactivity to tags. For example:
 
-![Tag Formatting](https://i.imgur.com/ZPNNBJu.png)
+![Tag Formatting](https://i.imgur.com/C53wob5.png)
 
 **This feature is inspired by [Bot 42](https://fennekid.github.io/beta/yna.html)*
 
