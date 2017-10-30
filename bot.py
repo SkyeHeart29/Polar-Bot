@@ -2,6 +2,7 @@ import asyncio
 import discord
 import logging
 import os
+import rethinkdb as r
 import sys
 from discord.ext import commands
 
@@ -9,6 +10,7 @@ logging.basicConfig(level=logging.INFO)
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'), description='A polar bear robot.')
 bot.remove_command("help")
+cogs = []
 
 @bot.command()
 @commands.is_owner()
@@ -43,10 +45,14 @@ if __name__ == "__main__":
     folder = input("Load cogs from: ")
     try:
         for file in os.listdir(folder):
+            if file == "__pycache__":
+                continue
             cog_name = "{}.{}".format(folder, file[:-3])
+            cogs.append(cog_name)
             bot.load_extension(cog_name)
             print("Loaded {}".format(cog_name))
     except:
         pass
-        
+    
+    r.set_loop_type('asyncio')
     bot.run(sys.argv[1])

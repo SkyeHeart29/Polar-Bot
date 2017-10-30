@@ -1,7 +1,7 @@
 ﻿import discord
 from discord.ext import commands
 
-class Recreational:
+class Morse:
     def __init__(self, bot):
         self.bot = bot
 
