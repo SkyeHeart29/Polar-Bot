@@ -5,7 +5,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 
 ## Notes
 * To use a command, ping the bot or prefix with a full stop/period.
-* Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discord.gg/invite/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
+* Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discordapp.com/invite/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
 
 ## Commands
 * `[]` is a mandatory argument while `()` is an optional argument.
@@ -26,7 +26,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 * `me [message]` - An adoption of Skype's /me command.
 
 ### Memory
-* **Tag** (See [Tag Formatting](https://github.com/polar-rex/Polar-Bot#tag-formatting). Aliases: `tag`, `t`)
+* **Tag** (See [*Tag Formatting*](https://github.com/polar-rex/Polar-Bot#tag-formatting). Aliases: `tag`, `t`)
   * `t [tag] (arg1) (arg2)` - Returns the content of the tag.
   * `t create [tag] [message] (arg1) (arg2)` - Creates a tag. `@here` or `@everyone` cannot be used in a tag.
   * `t delete [tag]` - Deletes a tag if you're the owner.
