@@ -12,7 +12,9 @@ class Tag:
         return await r.connect("localhost", 28015)
     
     @commands.group(invoke_without_command=True, aliases=['t'])
-    async def tag(self, ctx, tag_name:str, arg1:str="<arg1 missing>", arg2:str="<arg2 missing>"):
+    async def tag(self, ctx, tag_name:str=None, arg1:str="<arg1 missing>", arg2:str="<arg2 missing>"):
+        if tag_name == None:
+            await ctx.send("help")
         conn = await self.get_connection()
         cursor = await r.db('tags').table(str(ctx.guild.id)).filter(r.row["tag_name"] == tag_name.lower()).run(conn)
         while (await cursor.fetch_next()):

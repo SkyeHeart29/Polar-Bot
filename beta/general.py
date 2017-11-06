@@ -23,7 +23,7 @@ class General:
     
     @commands.command()
     async def server(self, ctx):
-        await ctx.send("https://discordapp.com/invite/5cxuTyN")
+        await ctx.send("https://discord.gg/5cxuTyN")
         
 def setup(bot):
     bot.add_cog(General(bot))
