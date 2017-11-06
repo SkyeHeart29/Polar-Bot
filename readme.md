@@ -5,7 +5,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 
 ## Notes
 * To use a command, ping the bot or prefix with a full stop/period.
-* Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discordapp.com/invite/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
+* Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discord.gg/invite/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
 
 ## Commands
 * `[]` is a mandatory argument while `()` is an optional argument.
@@ -35,7 +35,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 ### Search
 * `yt [search]` - Returns a YouTube link. (Alias: `youtube`)
 
-### Voice
+### Voice (Disabled until further notice)
 * `forceskip` - Force-skips current song. Caller requires  *deafen members* permission.
 * `pause` - Pauses current song. Caller requires *deafen members* permission.
 * `play [url/title]` - Plays a song. [Supported URLs](https://rg3.github.io/youtube-dl/supportedsites.html).
@@ -53,10 +53,10 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 * `playing [game]` - Set the playing status of the bot.
 * `reload [extension]` - Reloads an extension.
 * `unload [extension]` - Unloads an extension.
-* **Database** (Aliases: `database`, `db`)
+* **Database** (Uses [*RethinkDB*](https://www.rethinkdb.com/). Aliases: `database`, `db`)
   * `db create [database]` - Creates a database.
   * `db delete [database]` - Deletes a database.
-  * `db list [database]` - Lists all databases in the RethinkDB server.
+  * `db list [database]` - Lists all databases.
 
 ## Tag Formatting
 Polar Bot features a formatting system that provides functionality and interactivity to tags. For example:
