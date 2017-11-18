@@ -1,38 +1,63 @@
-﻿import discord
+﻿import asyncio
+import discord
+import rethinkdb as r
 from discord.ext import commands
 
 class Events:
     def __init__(self, bot):
         self.bot = bot
+
+    async def get_connection(self):
+        return await r.connect("localhost", 28015)
         
     async def on_ready(self):
         print("Logged in!")
         print("Name: %s" % self.bot.user.name)
         print("ID: %s" % self.bot.user.id)
-        print("Discord API version: %s" % discord.__version__)
-        await self.bot.change_presence(game=discord.Game(name='in the Arctic. Ping me.'))
-    
-    async def on_guild_join(self, guild):
-        if len(self.bot.guilds) > 100:
-            for channel in guild.channels:
-                try:
-                    await channel.send("Sorry, I can't join any more servers. Maybe next time when I can.")
-                    break
-                except:
-                    pass
-            await guild.leave()
+        print("Discord API version: {}".format(discord.__version__))
+        
+        conn = await self.get_connection()
+        cursor = await r.db("bots").table(str(self.bot.user.id)).run(conn)
+        while (await cursor.fetch_next()):
+            item = await cursor.next()
+            await self.bot.change_presence(game=discord.Game(name=item["playing"]))
     
     async def on_message(self, message):
+        conn = await self.get_connection()
+        
         if message.author == self.bot.user:
             return
+            
         elif message.content == "<@{}>".format(self.bot.user.id):
-            await message.channel.send("Use my commands by pinging me or prefixing using the full stop/period.\n\nhttps://gist.github.com/polar-rex/e0ff3188b5478930782b299be52ecb8d")
+            try:
+                guild_id = str(message.guild.id)
+                cursor = await r.db("bots").table(str(self.bot.user.id)).run(conn)
+                cursor2 = await r.db("properties").table(str(self.bot.user.id)+guild_id).run(conn)
+                text = ""
+            
+                while (await cursor2.fetch_next()):
+                    item = await cursor2.next()
+                    text += "Prefix: {}\n".format(item["prefix"])
+            
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    text += item["ping"]
+                
+                await message.channel.send(text)
+                
+            except:
+                pass
     
     async def on_command_error(self, ctx, e):
         if isinstance(e, commands.CommandNotFound):
             pass
         else:
-            await ctx.send("An error has occurred. Report to The Arctic Den. (Type `.server` for the link) ```{}```".format(e))
+            conn = await self.get_connection()
+            cursor = await r.db("bots").table(str(self.bot.user.id)).run(conn)
+            while (await cursor.fetch_next()):
+                item = await cursor.next()
+                await ctx.send(item["error"].format(e))
+
         
 def setup(bot):
     bot.add_cog(Events(bot))

@@ -8,7 +8,28 @@ from discord.ext import commands
 
 logging.basicConfig(level=logging.INFO)
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'), description='A polar bear robot.')
+r.set_loop_type('asyncio')
+
+async def get_connection():
+    return await r.connect("localhost", 28015)
+        
+async def get_pre(bot, message):
+    conn = await get_connection()
+    guild_id = str(message.guild.id)
+    bot_id = str(bot.user.id)
+    
+    if bot_id+guild_id not in await r.db('properties').table_list().run(conn):
+        await r.db('properties').table_create(bot_id+guild_id).run(conn)
+        await r.db('properties').table(bot_id+guild_id).insert({
+            "prefix": ".",
+        }).run(conn)
+        
+    cursor = await r.db("properties").table(bot_id+guild_id).run(conn)
+    while (await cursor.fetch_next()):
+        item = await cursor.next()
+        return item["prefix"]
+
+bot = commands.Bot(command_prefix=get_pre)
 bot.remove_command("help")
 cogs = []
 
@@ -54,5 +75,4 @@ if __name__ == "__main__":
     except:
         pass
     
-    r.set_loop_type('asyncio')
     bot.run(sys.argv[1])
