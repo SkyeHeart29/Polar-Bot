@@ -5,7 +5,7 @@ A polar bear Discord bot that stores tags, plays music, perform moderation funct
 
 ## Notes
 * To use a command, prefix with a full stop/period. You can change the prefix via the `prefix` command. Ping the bot to check what prefix is used for your server.
-* Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discord.gg/invite/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
+* Have any questions or problems regarding Polar Bot? Join [**The Arctic Den**](https://discord.gg/5cxuTyN)! You'll also get a chance to try out the beta version of the bot.
 * If you want to use my bot, check out the [installation guide](https://github.com/polar-rex/Polar-Bot/blob/master/installation.md).
 
 ## Commands

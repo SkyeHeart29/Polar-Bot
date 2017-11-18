@@ -21,7 +21,7 @@
   * Download the source code and paste it in your desired folder.
   * In Powershell/Terminal, change your current working directory to the desired folder. (Type `cd [PATH OF FOLDER]`)
   * Type `python bot.py [TOKEN]`, replacing [TOKEN] with the copied token.
-  * The program will ask you which cog folder to load from. There are two folders in the root folder, `cogs` and `beta. Type `cogs` for Polar Bot's cogs or `beta` for Polar Bot Beta's cogs.
+  * The program will ask you which cog folder to load from. There are two folders in the root folder, `cogs` and `beta`. Type `cogs` for Polar Bot's cogs or `beta` for Polar Bot Beta's cogs.
   * It would look something like this: ![Terminal](https://i.imgur.com/OJttfxq.png)
   
 * Initialising the bot
