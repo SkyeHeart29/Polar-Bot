@@ -23,13 +23,12 @@ class Events:
             await self.bot.change_presence(game=discord.Game(name=item["playing"]))
     
     async def on_message(self, message):
-        conn = await self.get_connection()
-        
         if message.author == self.bot.user:
             return
             
         elif message.content == "<@{}>".format(self.bot.user.id):
             try:
+                conn = await self.get_connection()
                 guild_id = str(message.guild.id)
                 cursor = await r.db("bots").table(str(self.bot.user.id)).run(conn)
                 cursor2 = await r.db("properties").table(str(self.bot.user.id)+guild_id).run(conn)
