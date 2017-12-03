@@ -1,4 +1,3 @@
-import asyncio
 import discord
 import logging
 import os
@@ -7,72 +6,53 @@ import sys
 from discord.ext import commands
 
 logging.basicConfig(level=logging.INFO)
-
-r.set_loop_type('asyncio')
-
-async def get_connection():
-    return await r.connect("localhost", 28015)
-        
-async def get_pre(bot, message):
-    conn = await get_connection()
-    guild_id = str(message.guild.id)
-    bot_id = str(bot.user.id)
-    
-    if bot_id+guild_id not in await r.db('properties').table_list().run(conn):
-        await r.db('properties').table_create(bot_id+guild_id).run(conn)
-        await r.db('properties').table(bot_id+guild_id).insert({
-            "prefix": ".",
-        }).run(conn)
-        
-    cursor = await r.db("properties").table(bot_id+guild_id).run(conn)
-    while (await cursor.fetch_next()):
-        item = await cursor.next()
-        return item["prefix"]
-
-bot = commands.Bot(command_prefix=get_pre)
+bot = commands.Bot(command_prefix="+")
 bot.remove_command("help")
-cogs = []
+coglist = []
 
 @bot.command()
 @commands.is_owner()
-async def load(ctx, extension:str):
-    bot.load_extension(extension)
-    await ctx.send("`{}` extension has been loaded.".format(extension))
-    cogs.append(extension)
+async def load(ctx, cog:str):
+    if cog in coglist:
+        await ctx.send("Cog already loaded!")
+        return
+    bot.load_extension("cogs.{}".format(cog))
+    await ctx.send("Loaded {}.".format(cog))
+    coglist.append(cog)
 
 @bot.command()
 @commands.is_owner()
-async def unload(ctx, extension:str):
-    bot.unload_extension(extension)
-    await ctx.send("`{}` extension has been unloaded.".format(extension))
-    cogs.remove(extension)
+async def unload(ctx, cog:str):
+    if cog not in coglist:
+        await ctx.send("Cog was not loaded!")
+        return
+    bot.unload_extension("cogs.{}".format(cog))
+    await ctx.send("Unloaded {}.".format(cog))
+    coglist.remove(cog)
     
 @bot.command()
 @commands.is_owner()
-async def reload(ctx, extension:str):
-    await ctx.invoke(unload, extension)
-    await ctx.invoke(load, extension)
+async def reload(ctx, cog:str):
+    if cog not in coglist:
+        await ctx.send("Cog was not loaded!")
+        return
+    await ctx.invoke(unload, cog)
+    await ctx.invoke(load, cog)
     
 @bot.command()
 @commands.is_owner()
-async def extensions(ctx):
+async def cogs(ctx):
     text = ""
-    for cog in cogs:
+    for cog in coglist:
         text += cog + "\n"
-        await asyncio.sleep(0)
     await ctx.send(text)
     
 if __name__ == "__main__":
-    folder = input("Load cogs from: ")
-    try:
-        for file in os.listdir(folder):
-            if file == "__pycache__":
-                continue
-            cog_name = "{}.{}".format(folder, file[:-3])
-            cogs.append(cog_name)
-            bot.load_extension(cog_name)
-            print("Loaded {}".format(cog_name))
-    except:
-        pass
-    
+    for file in os.listdir('cogs'):
+        if file == "__pycache__" or file == "_abstr.py":
+            continue
+        bot.load_extension('cogs.{}'.format(file[:-3]))
+        coglist.append(file[:-3])
+        print("Loaded {}.".format(file[:-3]))
+    r.set_loop_type('asyncio')
     bot.run(sys.argv[1])
