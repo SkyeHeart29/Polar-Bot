@@ -31,7 +31,7 @@ class Events:
     async def on_member_join(self, member):
         for channel in member.guild.channels:
             if channel.id == 292555897820020740:
-                await channel.send("Selamat sejahtera, <@{}> ke **server Discord /r/Malaysia**! Sila taip `+malaysian` atau `+nonmalaysian` untuk mendapatkan peranan. Harap anda berseronok di sini.<:najib:292879676198879232><:tehtarik:361901626295975936>\n\nWelcome, <@{}> to **/r/Malaysia's Discord server**! Type `+malaysian` or `nonmalaysian` to get a role. Don't forget to have a good time here.<:najib:292879676198879232><:tehtarik:361901626295975936>".format(member.id, member.id))
+                await channel.send("Selamat sejahtera, <@{}> ke **server Discord /r/Malaysia**! Sila baca peraturan di #about dan taip `+malaysian` atau `+nonmalaysian` untuk mendapatkan peranan. Harap anda berseronok di sini.<:najib:292879676198879232><:tehtarik:361901626295975936>\n\nWelcome, <@{}> to **/r/Malaysia's Discord server**! Please read the rules in #about and type `+malaysian` or `nonmalaysian` to get a role. Don't forget to have a good time.<:najib:292879676198879232><:tehtarik:361901626295975936>".format(member.id, member.id))
                 return
         
 def setup(bot):

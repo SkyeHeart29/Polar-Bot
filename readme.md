@@ -23,6 +23,7 @@ A Discord bot designed for the [/r/Malaysia server](https://discord.gg/gCpJ9BF).
 * `+kick [member]` - Kicks a member. (Requires *Kick Members* permission)
   
 ### Server Specific
+* `+colour (colour)` - Changes the colour of a user's name. Leaving the first argument out lists all the available colours. (Aliases: `c`)
 * `+malaysian` - Gives user the Malaysian role.
 * `+nonmalaysian` - Gives user the Non-Malaysian role.
 
