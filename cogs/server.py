@@ -16,7 +16,7 @@ class Server:
             if erase.name == "Non-Malaysians":
                 await ctx.author.remove_roles(erase)
                 break
-        await ctx.send("Peranan diberikan. Role given.")
+        await ctx.send("Peranan diberikan. Anda boleh tukar warna nama anda. Taip `+colour` of mengetahui kelanjutan.\n\nRole given. You can change the colour of your name. Type `+colour` to know more.")
         
     @commands.command()
     async def nonmalaysian(self, ctx):
@@ -28,7 +28,7 @@ class Server:
             if erase.name == "Malaysians":
                 await ctx.author.remove_roles(erase)
                 break
-        await ctx.send("Peranan diberikan. Role given.")
+        await ctx.send("Peranan diberikan. Anda boleh tukar warna nama anda. Taip `+colour` of mengetahui kelanjutan.\n\nRole given. You can change the colour of your name. Type `+colour` to know more.")
         
     @commands.command(aliases=['c'])
     async def colour(self, ctx, colour:str=None):
