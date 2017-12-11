@@ -8,7 +8,7 @@ class Events:
         self.bot = bot
 
     async def get_connection(self):
-        return await r.connect("localhost", 28015)
+        return await r.connect("localhost", 28015, 'bot')
         
     async def on_ready(self):
         print("Logged in!")
@@ -16,7 +16,12 @@ class Events:
         print("ID: %s" % self.bot.user.id)
         print("Discord API version: {}".format(discord.__version__))
         
-        await self.bot.change_presence(game=discord.Game(name="in the Arctic."))
+        conn = await self.get_connection()
+        cursor = await r.table('bot').run(conn)
+        while (await cursor.fetch_next()):
+            item = await cursor.next()
+            await self.bot.change_presence(game=discord.Game(name=item['playing']))
+        await conn.close()
     
     async def on_message(self, message):
         if message.author == self.bot.user:
@@ -31,8 +36,12 @@ class Events:
     async def on_member_join(self, member):
         for channel in member.guild.channels:
             if channel.id == 292555897820020740:
-                await channel.send("Selamat sejahtera, <@{}> ke **server Discord /r/Malaysia**! Sila baca peraturan di #about dan taip `+malaysian` atau `+nonmalaysian` untuk mendapatkan peranan. Harap anda berseronok di sini.<:najib:292879676198879232><:tehtarik:361901626295975936>\n\nWelcome, <@{}> to **/r/Malaysia's Discord server**! Please read the rules in #about and type `+malaysian` or `nonmalaysian` to get a role. Don't forget to have a good time.<:najib:292879676198879232><:tehtarik:361901626295975936>".format(member.id, member.id))
-                return
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await channel.send(item['welcome'].format(member.id))
+                await conn.close()
         
 def setup(bot):
     bot.add_cog(Events(bot))

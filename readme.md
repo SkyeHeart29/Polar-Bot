@@ -6,6 +6,7 @@ A Discord bot designed for the [/r/Malaysia server](https://discord.gg/gCpJ9BF).
 
 ### General
 * `+help` - Brings up the help page.
+* `+emoji` - Returns the URL of an emoji.
 * `+me [message]` - An adoption of Skype's /me command.
 * `+ping` - Pong!
 * `+youtube [search]` - Returns a YouTube link. (Alias: `+yt`)
@@ -26,13 +27,18 @@ A Discord bot designed for the [/r/Malaysia server](https://discord.gg/gCpJ9BF).
 * `+colour (colour)` - Changes the colour of a user's name. Leaving the first argument out lists all the available colours. (Aliases: `c`)
 * `+malaysian` - Gives user the Malaysian role.
 * `+nonmalaysian` - Gives user the Non-Malaysian role.
+* `+pawagam` - Gives user the pawagam role.
+* `+pondok` - Gives user the pondok role.
+* `+serious` - Gives user the serious role.
 
 ### Bot Owner Only
 * `+cogs` - Lists loaded extensions.
 * `+load [cog]` - Loads an extension.
 * `+playing [game]` - Set the playing status of the bot.
 * `+reload [cog]` - Reloads an extension.
+* `+rm[number] [message]` - Edits Role Message [number].
 * `+unload [cog]` - Unloads an extension.
+* `+welcome [message]` - Edits the welcome message.
 
 ## Tag Formatting
 Polar Bot features a formatting system that provides allows tags to be dynamic. For example:

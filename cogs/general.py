@@ -38,6 +38,10 @@ class General:
                     links.append("[**{}**/{}] https://www.youtube.com{}".format(ind+1, len(elements), url['href']))
                     await asyncio.sleep(0)
                 await abstr.postpages(self.bot, ctx, links)
+                
+    @commands.command()
+    async def emoji(self, ctx, emoji:discord.Emoji):
+        await ctx.send(emoji.url)
         
 def setup(bot):
     bot.add_cog(General(bot))

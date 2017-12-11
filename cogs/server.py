@@ -1,34 +1,99 @@
 import asyncio
 import discord
+import rethinkdb as r
 from discord.ext import commands
 
 class Server:
     def __init__(self, bot):
         self.bot = bot
         
+    async def get_connection(self):
+        return await r.connect("localhost", 28015, 'bot')
+        
     @commands.command()
     async def malaysian(self, ctx):
         for role in ctx.guild.roles:
             if role.name == "Malaysians":
                 await ctx.author.add_roles(role)
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await ctx.send(item['rm1'])
+                await conn.close()
                 break
         for erase in ctx.author.roles:
             if erase.name == "Non-Malaysians":
                 await ctx.author.remove_roles(erase)
                 break
-        await ctx.send("Peranan diberikan. Anda boleh tukar warna nama anda. Taip `+colour` of mengetahui kelanjutan.\n\nRole given. You can change the colour of your name. Type `+colour` to know more.")
         
     @commands.command()
     async def nonmalaysian(self, ctx):
         for role in ctx.guild.roles:
             if role.name == "Non-Malaysians":
                 await ctx.author.add_roles(role)
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await ctx.send(item['rm1'])
+                await conn.close()
                 break
         for erase in ctx.author.roles:
             if erase.name == "Malaysians":
                 await ctx.author.remove_roles(erase)
                 break
-        await ctx.send("Peranan diberikan. Anda boleh tukar warna nama anda. Taip `+colour` of mengetahui kelanjutan.\n\nRole given. You can change the colour of your name. Type `+colour` to know more.")
+        
+    @commands.command()
+    async def pawagam(self, ctx):
+        for erase in ctx.author.roles:
+            if erase.name == "pawagam":
+                await ctx.author.remove_roles(erase)
+                return
+        for role in ctx.guild.roles:
+            if role.name == "pawagam":
+                await ctx.author.add_roles(role)
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await ctx.send(item['rm2'])
+                await conn.close()
+                return
+                
+    @commands.command()
+    async def pondok(self, ctx):
+        for erase in ctx.author.roles:
+            if erase.name == "pondok":
+                await ctx.author.remove_roles(erase)
+                return
+        for role in ctx.guild.roles:
+            if role.name == "pondok":
+                await ctx.author.add_roles(role)
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await ctx.send(item['rm3'])
+                await conn.close()
+                return
+                
+    @commands.command()
+    async def serious(self, ctx):
+        for erase in ctx.author.roles:
+            if erase.name == "serious":
+                await ctx.author.remove_roles(erase)
+                return
+        for role in ctx.guild.roles:
+            if role.name == "serious":
+                await ctx.author.add_roles(role)
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await ctx.send(item['rm4'])
+                await conn.close()
+                return
         
     @commands.command(aliases=['c'])
     async def colour(self, ctx, colour:str=None):
