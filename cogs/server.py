@@ -43,7 +43,6 @@ class Server:
             if erase.name == "Malaysians":
                 await ctx.author.remove_roles(erase)
                 break
-<<<<<<< HEAD
                 
     @commands.command()
     async def boardgame(self, ctx):
@@ -53,61 +52,12 @@ class Server:
                 return
         for role in ctx.guild.roles:
             if role.name == "boardgame":
-=======
-        
-    @commands.command()
-    async def pawagam(self, ctx):
-        for erase in ctx.author.roles:
-            if erase.name == "pawagam":
-                await ctx.author.remove_roles(erase)
-                return
-        for role in ctx.guild.roles:
-            if role.name == "pawagam":
                 await ctx.author.add_roles(role)
                 conn = await self.get_connection()
                 cursor = await r.table('bot').run(conn)
                 while (await cursor.fetch_next()):
                     item = await cursor.next()
-                    await ctx.send(item['rm2'])
-                await conn.close()
-                return
-                
-    @commands.command()
-    async def pondok(self, ctx):
-        for erase in ctx.author.roles:
-            if erase.name == "pondok":
-                await ctx.author.remove_roles(erase)
-                return
-        for role in ctx.guild.roles:
-            if role.name == "pondok":
-                await ctx.author.add_roles(role)
-                conn = await self.get_connection()
-                cursor = await r.table('bot').run(conn)
-                while (await cursor.fetch_next()):
-                    item = await cursor.next()
-                    await ctx.send(item['rm3'])
-                await conn.close()
-                return
-                
-    @commands.command()
-    async def serious(self, ctx):
-        for erase in ctx.author.roles:
-            if erase.name == "serious":
-                await ctx.author.remove_roles(erase)
-                return
-        for role in ctx.guild.roles:
-            if role.name == "serious":
->>>>>>> 6044886e47955bc7a4c5fd9c720dbc6cbf45def7
-                await ctx.author.add_roles(role)
-                conn = await self.get_connection()
-                cursor = await r.table('bot').run(conn)
-                while (await cursor.fetch_next()):
-                    item = await cursor.next()
-<<<<<<< HEAD
                     await ctx.send(item['rm5'])
-=======
-                    await ctx.send(item['rm4'])
->>>>>>> 6044886e47955bc7a4c5fd9c720dbc6cbf45def7
                 await conn.close()
                 return
         
