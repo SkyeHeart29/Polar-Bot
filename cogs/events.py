@@ -1,38 +1,75 @@
-﻿import discord
+﻿import asyncio
+import discord
+import rethinkdb as r
 from discord.ext import commands
 
 class Events:
     def __init__(self, bot):
         self.bot = bot
+
+    async def get_connection(self):
+        return await r.connect("localhost", 28015, 'bot')
         
     async def on_ready(self):
         print("Logged in!")
         print("Name: %s" % self.bot.user.name)
         print("ID: %s" % self.bot.user.id)
-        print("Discord API version: %s" % discord.__version__)
-        await self.bot.change_presence(game=discord.Game(name='in the Arctic. Ping me.'))
-    
-    async def on_guild_join(self, guild):
-        if len(self.bot.guilds) > 100:
-            for channel in guild.channels:
-                try:
-                    await channel.send("Sorry, I can't join any more servers. Maybe next time when I can.")
-                    break
-                except:
-                    pass
-            await guild.leave()
+        print("Discord API version: {}".format(discord.__version__))
+        
+        conn = await self.get_connection()
+        cursor = await r.table('bot').run(conn)
+        while (await cursor.fetch_next()):
+            item = await cursor.next()
+            await self.bot.change_presence(game=discord.Game(name=item['playing']))
+        await conn.close()
     
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
-        elif message.content == "<@{}>".format(self.bot.user.id):
-            await message.channel.send("Use my commands by pinging me or prefixing using the full stop/period.\n\nhttps://gist.github.com/polar-rex/e0ff3188b5478930782b299be52ecb8d")
     
     async def on_command_error(self, ctx, e):
         if isinstance(e, commands.CommandNotFound):
             pass
         else:
-            await ctx.send("An error has occurred. Report to The Arctic Den. (Type `.server` for the link) ```{}```".format(e))
+            await ctx.send("ERROR:```{}```".format(e))
+            
+    async def on_member_join(self, member):
+        for channel in member.guild.channels:
+            if channel.id == 292555897820020740:
+                conn = await self.get_connection()
+                cursor = await r.table('bot').run(conn)
+                while (await cursor.fetch_next()):
+                    item = await cursor.next()
+                    await channel.send(item['welcome'].format(member.id))
+                await conn.close()
+                
+    async def on_voice_state_update(self, member, before, after):
+        if after.channel == None or after.channel.id == 404965762906849281:
+            for erase in member.roles:
+                if erase.name == "voice channel 1":
+                    await member.remove_roles(erase)
+                if erase.name == "voice channel 2":
+                    await member.remove_roles(erase)
+                    
+        elif after.channel.id == 292543650381037568:
+            for role in member.guild.roles:
+                if role.name == "voice channel 1":
+                    await member.add_roles(role)
+                    break
+            for erase in member.roles:
+                if erase.name == "voice channel 2":
+                    await member.remove_roles(erase)
+                    break
+                    
+        elif after.channel.id == 336178195302973444:
+            for role in member.guild.roles:
+                if role.name == "voice channel 2":
+                    await member.add_roles(role)
+                    break
+            for erase in member.roles:
+                if erase.name == "voice channel 1":
+                    await member.remove_roles(erase)
+                    break
         
 def setup(bot):
     bot.add_cog(Events(bot))

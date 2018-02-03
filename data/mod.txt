@@ -1,0 +1,6 @@
+﻿**MEMBERS**
+`+ban` - Ban a member.
+`+kick` - Kick a member.
+
+**MESSAGES**
+`+clear` - Clear a number of recent messages from a channel.

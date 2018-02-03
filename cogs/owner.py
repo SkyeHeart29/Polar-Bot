@@ -1,5 +1,4 @@
-﻿import asyncio
-import discord
+﻿import discord
 import rethinkdb as r
 from discord.ext import commands
 
@@ -8,52 +7,32 @@ class Owner:
         self.bot = bot
     
     async def get_connection(self):
-        return await r.connect("localhost", 28015)
+        return await r.connect("localhost", 28015, 'bot')
         
     @commands.command()
     @commands.is_owner()
-    async def playing(self, ctx, *, game_name:str):
-        await self.bot.change_presence(game=discord.Game(name=game_name))
+    async def playing(self, ctx, playing:str):
+        conn = await self.get_connection()
+        await r.table('bot').update({'playing': playing}).run(conn)
+        await conn.close()
+        await self.bot.change_presence(game=discord.Game(name=playing))
+        await ctx.send("The playing status has been changed.")
         
     @commands.command()
     @commands.is_owner()
-    async def inform(self, ctx, *, news:str):
-        for guild in self.bot.guilds:
-            for channel in guild.channels:
-                try:
-                    await channel.send(news)
-                    break
-                except:
-                    pass
-                    
-    @commands.group(invoke_without_command=True, aliases=['db'])
-    async def database(self, ctx):
-        pass
-        
-    @database.command()
-    @commands.is_owner()
-    async def create(self, ctx, *, database:str):
+    async def welcome(self, ctx, welcome:str):
         conn = await self.get_connection()
-        await r.db_create(database).run(conn)
-        await ctx.send("Created `{}` successfully!".format(database))
+        await r.table('bot').update({'welcome': welcome}).run(conn)
+        await conn.close()
+        await ctx.send("The welcome message has been changed.")
         
-    @database.command()
+    @commands.command()
     @commands.is_owner()
-    async def delete(self, ctx, *, database:str):
+    async def rm(self, ctx, no:str, text:str):
         conn = await self.get_connection()
-        await r.db_drop(database).run(conn)
-        await ctx.send("Deleted `{}` successfully!".format(database))
-        
-    @database.command()
-    @commands.is_owner()
-    async def list(self, ctx):
-        conn = await self.get_connection()
-        to_iterate = await r.db_list().run(conn)
-        text = ""
-        for x in to_iterate:
-            text += "{}\n".format(x)
-            await asyncio.sleep(0)
-        await ctx.send(text)
+        await r.table('bot').update({'rm{}'.format(no): text}).run(conn)
+        await conn.close()
+        await ctx.send("Role Message {} has been changed.".format(no))
         
 def setup(bot):
     bot.add_cog(Owner(bot))

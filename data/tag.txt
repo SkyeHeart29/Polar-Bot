@@ -1,0 +1,23 @@
+﻿**COMMANDS**
+`+tag [name]` - Return the content of the tag.
+`+tag create [name]` - Create a tag.
+`+tag delete [name]` - Delete a tag.
+`+tag list (member)` - Return list of tags. If no member is given, caller's tags are returned instead.
+
+**FORMAT OBJECTS**
+`{tag}` - Name of tag.
+`{me}` - Display name of caller.
+`{me-user}` - Username with discrimination number of caller.
+`{me-username}` - Username without discrimination number of caller.
+`{me-discrim}` - Discrimination number of caller.
+`{me-id}` - User ID of caller.
+`{channel}` - Name of channel the tag is called in.
+`channel-id}` - ID of channel the tag is called in.
+`{server}` - Name of server the tag is called in.
+`{server-id}` - ID of server the tag is called in.
+`{freq}` - Number of times the tag was called.
+`{arg1}` - Optional argument 1.
+`{arg2}` - Optional argument 2.
+
+To ping someone, do `<@{me-id}>`.
+To link a channel, do `<#{channel-id}>`

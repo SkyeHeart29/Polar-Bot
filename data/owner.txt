@@ -1,0 +1,10 @@
+﻿**EXTENSIONS**
+`+cogs` - List loaded extensions.
+`+load` - Load an extension.
+`+unload` - Unloads an extension.
+`+reload` - Reloads an extension.
+
+**CONFIGURATION**
+`+playing` - Set the playing status of the bot.
+`+welcome` - Edit the welcome message.
+`+rm` - Edit a Role Message.

@@ -1,0 +1,20 @@
+﻿**ROLES**
+`+colour` - Change the colour of your displayed name.
+`+malaysian` - Gain access to all text and voice channels.
+`+nonmalaysian` - Gain access to all text and voice channels.
+`+boardgame` - Get informed about any board game events.
+
+**RECREATIONAL**
+`+me` - An adoption of Skype's '/me' command.
+`+ping` - Pong!
+`+reverse` - Reverse a text.
+`+mirror` - Mirror a text.
+`+invert` - Flip a text vertically.
+
+**UTILITY**
+`+source` - View Polar Bot's source code.
+`+yt` - Search for YouTube links.
+`+tag` - Store text to be referenced. Type `+help tag` for more.
+
+For moderation commands, type `+help mod`.
+For bot owner commands, type `+help owner`.
