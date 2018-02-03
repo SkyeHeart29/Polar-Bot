@@ -42,6 +42,7 @@ class Events:
                     item = await cursor.next()
                     await channel.send(item['welcome'].format(member.id))
                 await conn.close()
+<<<<<<< HEAD
                 
     async def on_voice_state_update(self, member, before, after):
         if after.channel == None or after.channel.id == 404965762906849281:
@@ -70,6 +71,8 @@ class Events:
                 if erase.name == "voice channel 1":
                     await member.remove_roles(erase)
                     break
+=======
+>>>>>>> 6044886e47955bc7a4c5fd9c720dbc6cbf45def7
         
 def setup(bot):
     bot.add_cog(Events(bot))

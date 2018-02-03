@@ -10,6 +10,7 @@ class General:
     def __init__(self, bot):
         self.bot = bot
         
+<<<<<<< HEAD
         
     async def get_connection(self):
         return await r.connect("localhost", 28015)
@@ -36,10 +37,22 @@ class General:
             await ctx.send('Usage: `+me [text]`')
             return
             
+=======
+    async def get_connection(self):
+        return await r.connect("localhost", 28015)
+
+    @commands.group(invoke_without_command=True)
+    async def help(self, ctx):
+        await ctx.send("https://github.com/polar-rex/Polar-Bot")
+        
+    @commands.command()
+    async def me(self, ctx, text:str):
+>>>>>>> 6044886e47955bc7a4c5fd9c720dbc6cbf45def7
         await ctx.message.delete()
         name = ctx.author.display_name
         await ctx.send("* {} {}".format(name, text))
 
+<<<<<<< HEAD
         
     @commands.command()
     async def ping(self, ctx):
@@ -124,6 +137,28 @@ class General:
                     
                 await abstr.postpages(self.bot, ctx, links)
         
+=======
+    @commands.command()
+    async def ping(self, ctx):
+        await ctx.send("Pong!")
+        
+    @commands.command(aliases=['yt'])
+    async def youtube(self, ctx, *, search:str):
+        async with aiohttp.ClientSession() as session:
+            async with session.get("https://www.youtube.com/results?search_query={}".format(search.replace(" ", "+"))) as resp:
+                to_parse = await resp.text()
+                bs_object = bs4.BeautifulSoup(to_parse, "html.parser")
+                elements = bs_object.select('div > h3 > a')
+                links = []
+                for ind, url in enumerate(elements):
+                    links.append("[**{}**/{}] https://www.youtube.com{}".format(ind+1, len(elements), url['href']))
+                    await asyncio.sleep(0)
+                await abstr.postpages(self.bot, ctx, links)
+                
+    @commands.command()
+    async def emoji(self, ctx, emoji:discord.Emoji):
+        await ctx.send(emoji.url)
+>>>>>>> 6044886e47955bc7a4c5fd9c720dbc6cbf45def7
         
 def setup(bot):
     bot.add_cog(General(bot))
