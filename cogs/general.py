@@ -102,7 +102,15 @@ class General:
         
     @commands.command()
     async def source(self, ctx):
-        await ctx.send("https://github.com/polar-rex/Polar-Bot")
+        await ctx.send("https://github.com/polar-rex/Polar-Bot
+        
+        
+    @commands.command()
+    async def info(self, ctx, person:discord.Member=None):
+        if person == None:
+            person = ctx.author
+        avatar
+        await ctx.send(avatar)
         
         
     @commands.command()
