@@ -12,7 +12,9 @@
 `+invert` - Flip a text vertically.
 
 **UTILITY**
-`+source` - View Polar Bot's source code.
+`+info` - Get information of a member.
+`+server` - Get information about the server.
+`+about` - Get information about Polar Bot.
 `+yt` - Search for YouTube links.
 `+tag` - Store text to be referenced. Type `+help tag` for more.
 
