@@ -45,6 +45,14 @@ class Tag:
             return
             
         conn = await self.get_connection()
+        cursor = await r.table('tags').run(conn)
+        while (await cursor.fetch_next()):
+            item = await cursor.next()
+            if item['tag'] == tag:
+                await ctx.send('There\'s already a tag named {}'.format(tag))
+                await conn.close()
+                return
+        
         await r.table('tags').insert({
             "tag": tag.lower(),
             "content": content,
@@ -67,8 +75,10 @@ class Tag:
             
         owner = str(member.id)
         text = "{}'s tags:\n".format(member.display_name)
+        
         while (await cursor.fetch_next()):
             item = await cursor.next()
+            
             if item['owner'] == owner:
                 text += "`{}`, ".format(item['tag'])
                 
@@ -83,10 +93,15 @@ class Tag:
         
         while (await cursor.fetch_next()):
             item = await cursor.next()
+            
             if item['owner'] == str(ctx.author.id):
                 break
+                
+            elif ctx.author.guild_permissions.manage_messages == True:
+                break
+                
             else:
-                await ctx.send("You are not the owner of this tag.")
+                await ctx.send("You are not the owner of this tag or you do not have 'manage messages' permission.")
                 await conn.close()
                 return
                 
