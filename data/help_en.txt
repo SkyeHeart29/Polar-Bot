@@ -12,6 +12,8 @@
 `+roll [num]` - Obtain a random number between 1 and a desired number.
 `+random [num]` - Obtain a random number between a desired number and another.
 `+translate [text] (output language) (input language)` - Translate a text.
+`+give [role]` - Give yourself a role.
+`+colour [colour]` - Change the colour of your name.
 
 **RECREATIONAL**
 `+me [text]` - An adoption of Skype's '/me' command.

@@ -12,6 +12,8 @@
 `+roll [nom]` - Dapat satu nombor secara rawak antara 1 dengan nombor dipilih.
 `+random [nom]` - Dapat satu nombor secara rawak antara nombor dipilih dengan nombor yang lain.
 `+translate [teks] (bahasa) (bahasa)` - Terjemah teks.
+`+beri [peranan]` - Beri peranan kepada anda.
+`+warna [warna]` - Tukar warna nama anda.
 
 **RECREATIONAL**
 `+me [teks]` - Pengangkatan arahan '/me' daripada Skype.
