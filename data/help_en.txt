@@ -10,7 +10,7 @@
 `+kamus [word]` - Search for a word in Bahasa Melayu.
 `+choose [choice 1] [choice 2] ...` - Randomly choose from a list of words.
 `+roll [num]` - Obtain a random number between 1 and a desired number.
-`+random [num]` - Obtain a random number between a desired number and another.
+`+random [num1] [num2]` - Obtain a random number between a desired number and another.
 `+translate [text] (output language) (input language)` - Translate a text.
 `+give [role]` - Give yourself a role.
 `+colour [colour]` - Change the colour of your name.

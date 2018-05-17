@@ -10,7 +10,7 @@
 `+kamus [kata]` - Cari maksud perkataan dalam Bahasa Melayu.
 `+choose [pilihan 1] [pilihan 2] ...` - Pilih dari senarai secara rawak.
 `+roll [nom]` - Dapat satu nombor secara rawak antara 1 dengan nombor dipilih.
-`+random [nom]` - Dapat satu nombor secara rawak antara nombor dipilih dengan nombor yang lain.
+`+random [nom1] [nom2]` - Dapat satu nombor secara rawak antara nombor dipilih dengan nombor yang lain.
 `+translate [teks] (bahasa) (bahasa)` - Terjemah teks.
 `+beri [peranan]` - Beri peranan kepada anda.
 `+warna [warna]` - Tukar warna nama anda.
