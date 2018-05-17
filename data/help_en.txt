@@ -1,0 +1,26 @@
+﻿**MAKLUMAT**
+`+info (member)` - Get information of a member.
+`+server` - Get information about the server.
+`+about` - Get information about Polar Bot.
+
+**UTILITY**
+`+nick [new name]` - Change your display name.
+`+clearnick` - Reset your display name.
+`+yt [query]` - Search for YouTube links.
+`+kamus [word]` - Search for a word in Bahasa Melayu.
+`+choose [choice 1] [choice 2] ...` - Randomly choose from a list of words.
+`+roll [num]` - Obtain a random number between 1 and a desired number.
+`+random [num]` - Obtain a random number between a desired number and another.
+`+translate [text] (output language) (input language)` - Translate a text.
+
+**RECREATIONAL**
+`+me [text]` - An adoption of Skype's '/me' command.
+`+ping` - Pong!
+`+reverse [text]` - Reverse a text.
+`+mirror [text]` - Mirror a text.
+`+invert [text]` - Flip a text vertically.
+`+google [query]` - Return a google link.
+`+lmgtfy [query]` - Create a LMGTFY link.
+`+convert [value] (base) (rate)` - Convert currency. Rates are updated daily at 11pm.
+
+Type `+help tag` to find out more about the tag command.

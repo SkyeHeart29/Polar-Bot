@@ -1,0 +1,1 @@
+﻿<@{}> : Anda telah diberi peranan **{}**. You have been given the role **{}**.

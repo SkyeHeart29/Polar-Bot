@@ -35,7 +35,7 @@ class Log:
     
     async def find_channel(self, guild):
         for x in guild.channels:
-            if x.name == 'log':
+            if x.id == 305972553954885632:
                 return x
                 
     

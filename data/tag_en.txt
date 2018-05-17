@@ -12,7 +12,7 @@
 `{me-discrim}` - Discrimination number of caller.
 `{me-id}` - User ID of caller.
 `{channel}` - Name of channel the tag is called in.
-`channel-id}` - ID of channel the tag is called in.
+`{channel-id}` - ID of channel the tag is called in.
 `{server}` - Name of server the tag is called in.
 `{server-id}` - ID of server the tag is called in.
 `{freq}` - Number of times the tag was called.

@@ -1,0 +1,11 @@
+<@{}>
+
+:flag_my: **SELAMAT DATANG, {}, KE DISCORD SERVER /R/MALAYSIA** :flag_my:
+:small_blue_diamond: Sila baca dan memahami peraturan di <#444404162525134848>.
+:small_blue_diamond: Sila baca dan mengetahui server di <#292546917857230848>. Anda akan mengetahui bagaimana hendak mengakses semua saluran.
+:small_blue_diamond: Harap anda berseronok di sini! <:nasilemakbungkus:361904629866299402><:tehtarik:361901626295975936>
+
+:flag_my: **WELCOME, {}, TO /R/MALAYSIA'S DISCORD SERVER** :flag_my:
+:small_blue_diamond: Please read and understand the rules in <#444404162525134848>.
+:small_blue_diamond: Please read and get to know the server in <#292546917857230848>. You will know how to access all channels.
+:small_blue_diamond: Don't forget to have a good time here! <:nasilemakbungkus:361904629866299402><:tehtarik:361901626295975936>

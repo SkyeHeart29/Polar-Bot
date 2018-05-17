@@ -1,0 +1,26 @@
+﻿1**MAKLUMAT**
+`+info (ahli)` - Dapat maklumat tentang seorang ahli.
+`+server` - Dapat maklumat tentang server.
+`+about` - Dapat maklumat tentang Polar Bot.
+
+**UTILITY**
+`+nick [nama baru]` - Tukar nama paparan anda.
+`+clearnick` - Tetap semula nama paparan anda.
+`+yt [teks]` - Cari pautan YouTube for YouTube links.
+`+kamus [kata]` - Cari maksud perkataan dalam Bahasa Melayu.
+`+choose [pilihan 1] [pilihan 2] ...` - Pilih dari senarai secara rawak.
+`+roll [nom]` - Dapat satu nombor secara rawak antara 1 dengan nombor dipilih.
+`+random [nom]` - Dapat satu nombor secara rawak antara nombor dipilih dengan nombor yang lain.
+`+translate [teks] (bahasa) (bahasa)` - Terjemah teks.
+
+**RECREATIONAL**
+`+me [teks]` - Pengangkatan arahan '/me' daripada Skype.
+`+ping` - Pong!
+`+reverse [teks]` - Membalikkan teks..
+`+mirror [teks]` - Membalikkan teks secara mendatar.
+`+invert [teks]` - Membalikkan teks secara menegak
+`+google [teks]` - Pulang sebaris pautan Google.
+`+lmgtfy [teks]` - Buat sebaris pautan LMGTFY.
+`+convert [nilai] (asas) (kadar)` - Menukar mata wang. Kadar dikemaskini setiap pukul 11 malam.
+
+Taip `+panduan penanda` untuk mengetahui tentang arahan penanda.

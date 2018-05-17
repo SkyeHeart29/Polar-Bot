@@ -1,0 +1,23 @@
+﻿**ARAHAN**
+`+tag [nama]` - Pulang kandungan penanda.
+`+tag create [nama]` - Buat sekeping penanda.
+`+tag delete [nama]` - Padam sekeping penanda.
+`+tag list (ahli)` - Pulang senarai penanda. Jika tiada ahli diberikan, pengguna punya senarai dipulangkan.
+
+**OBJEK FORMAT**
+`{tag}` - Nama penanda.
+`{me}` - Nama paparan pengguna.
+`{me-user}` - Nama pengguna dengan nombor diskriminasi.
+`{me-username}` - Nama pengguna tanpa nombor diskriminasi.
+`{me-discrim}` - Nombor diskriminasi pengguna sahaja.
+`{me-id}` - ID pengguna.
+`{channel}` - Nama saluran di mana penanda digunakan.
+`{channel-id}` - ID saluran di mana penanda digunakan.
+`{server}` - Name server di mana penanda digunakan.
+`{server-id}` - ID server di mana penanda digunakan.
+`{freq}` - Kekerapan penggunaan penanda.
+`{arg1}` - Hujah tidak wajib 1.
+`{arg2}` - Hujah tidak wajib 2.
+
+Untuk mengping seorang, gunakan `<@{me-id}>`.
+Untuk memaut sebuah saluran, gunakan `<#{channel-id}>`
