@@ -1,2 +1,2 @@
 # Polar Bot
-A Discord bot designed for the [/r/Malaysia server](https://discord.gg/gCpJ9BF)
+A Discord bot designed for the [/r/Malaysia server](https://discord.gg/gATCUwv)
