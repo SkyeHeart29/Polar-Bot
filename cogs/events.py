@@ -7,6 +7,7 @@ from discord.ext import commands
 class Events:
     def __init__(self, bot):
         self.bot = bot
+        self.muted_asshats = open('./data/muted.txt').read().split()
 
 
     async def postfile(self, filename):
@@ -35,6 +36,8 @@ class Events:
             with open('./data/muted.txt', 'a') as file:
                 file.write(id + '\n')
             await ctx.send('Muted {}.'.format(str(member)))
+            
+        self.muted_asshats = open('./data/muted.txt').read().split()
                 
         
     async def get_connection(self):
@@ -61,7 +64,7 @@ class Events:
         if message.author == self.bot.user:
             return
         
-        if str(message.author.id) in open('./data/muted.txt').read().split():
+        if str(message.author.id) in self.muted_asshats:
             await message.delete()
     
     
